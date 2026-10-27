@@ -30,10 +30,12 @@
 body { background: var(--bg); color: var(--fg); font-family: var(--f-serif); font-weight: 500; }
 .wrap { max-width: 640px; margin: 0 auto; padding-block: 40px 56px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); display: grid; gap: 34px; }
 .top .k { font-family: var(--f-mono); font-size: 12px; letter-spacing: .3em; color: var(--mute); margin: 0; }
-.top h1 { --s: clamp(84px, 24vw, 150px); margin: 18px 0 0 -4px; font-size: 1em; }
+.top h1 { --s: clamp(120px, 34vw, 190px); margin: 18px 0 0 -4px; font-size: 1em; }
 .logo{position:relative;display:inline-block;font-family:var(--f-serif);font-weight:800;font-size:var(--s);line-height:1;letter-spacing:.06em;--g:calc(var(--s)*.075)}.logo .lt{padding:.12em 0;margin:-.12em 0}.logo .lt{display:block;-webkit-mask:linear-gradient(#000 0 calc(52.4% - var(--g)/2),transparent calc(52.4% - var(--g)/2) calc(52.4% + var(--g)/2),#000 calc(52.4% + var(--g)/2));mask:linear-gradient(#000 0 calc(52.4% - var(--g)/2),transparent calc(52.4% - var(--g)/2) calc(52.4% + var(--g)/2),#000 calc(52.4% + var(--g)/2))}.logo .ls{position:absolute;left:0;right:.06em;top:calc(53% - var(--g)/2);height:var(--g);display:flex;align-items:center;justify-content:space-between;gap:.08em;font-family:var(--f-mono);font-weight:500;font-size:calc(var(--s)*.042);letter-spacing:.16em;color:#dcaa48;white-space:nowrap}.logo .ls i{font-style:normal;color:#9a948a}
 .top h1 .lt { -webkit-mask: none; mask: none; }
-.top h1 .ls { background: var(--bg); top: calc(60% - var(--g) * .35); height: calc(var(--g) * .7); left: -.03em; right: .03em; font-size: 0; }
+.top h1 .logo { --g: calc(var(--s) * .085); }
+.top h1 .ls { background: var(--bg); top: calc(60% - var(--g) / 2); height: var(--g); left: -.03em; right: .03em; font-size: max(8.5px, calc(var(--s) * .052)); letter-spacing: .08em; justify-content: center; gap: 1.2em; }
+@media (max-width: 520px) { .top h1 .ls i { display: none; } }
 .slitline { font-family: var(--f-mono); font-size: 11px; letter-spacing: .16em; color: var(--amber); margin: 10px 0 0; }
 .slitline i { font-style: normal; color: var(--mute); }
 .top .tag { font-size: 17px; font-weight: 700; letter-spacing: .1em; margin: 16px 0 0; text-wrap: balance; }
@@ -63,8 +65,7 @@ p.tx { font-size: 15.5px; line-height: 2; margin: 0 0 10px; color: #ddd6c9; }
 <div class="wrap">
   <header class="top">
     <p class="k">DOCUMENTARY SURVIVAL ・ 全4章</p>
-    <h1><span class="logo" role="img" aria-label="防災"><span class="lt">防災</span><span class="ls"></span></span></h1>
-    <p class="slitline"><i>1902</i> UAL 232 / LZ 129 / ANDREA DORIA / HAKKODA <i>1989</i></p>
+    <h1><span class="logo" role="img" aria-label="防災"><span class="lt">防災</span><span class="ls"><i>1902</i><span>UAL 232 / LZ 129 / ANDREA DORIA / HAKKODA</span><i>1989</i></span></span></h1>
     <p class="tag">史実の事故を、その場にいた一人として。</p>
   </header>
 
