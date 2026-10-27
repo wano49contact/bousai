@@ -305,7 +305,7 @@ const G = {
    ===================================================================== */
 const waits = [];
 // soft:この時間が過ぎたら、タップで送ってよい(読み終わった字幕など)。指定のない待ちは送れない
-function wait(ms, soft) { return new Promise((res) => waits.push({ left: ms, res, soft, el: 0 })); }
+function wait(ms, soft) { if (soft === undefined && ms >= 600) soft = ms * 0.5; return new Promise((res) => waits.push({ left: ms, res, soft, el: 0 })); }
 // 2回目以降:タップで、いま待っている間をすぐ終える
 function skipWaits() { for (const w of waits) w.left = Math.min(w.left, 1); }
 // 1回目:読み終わったものだけ送る
@@ -466,7 +466,7 @@ async function say(text, { who = '', en = '', hold, keep = false } = {}) {
   el.innerHTML = (who ? `<span class="who">${who}</span>` : '') + text + (en && G.en ? `<span class="en">${en}</span>` : '');
   el.classList.add('on');
   const n = text.replace(/<[^>]+>/g, '').length;
-  await wait((hold ?? (1400 + n * 95)) * (G.short ? 0.8 : 1), 700 + n * 60);   // 読み終わるくらいの時間(1字60ms)が過ぎたら、タップで送れる
+  await wait((hold ?? (1400 + n * 95)) * (G.short ? 0.8 : 1), 400 + n * 45);   // 読み終わるくらいの時間(1字45ms)が過ぎたら、タップで送れる
   if (!keep && my === subToken) el.classList.remove('on');
   await wait(450, 0);
 }
@@ -481,7 +481,7 @@ async function card(lines, { gap = 1100, hold = 2200, out = true } = {}) {
   const els = lines.map((l) => { const d = document.createElement('div'); const [cls, txt] = Array.isArray(l) ? l : ['', l]; d.className = 'l ' + cls; d.innerHTML = txt; box.appendChild(d); return d; });
   await wait(500);
   for (const d of els) { d.classList.add('on'); await wait(gap); }
-  await wait(hold, 1400);   // 全部の行が出て少ししたら、タップで送れる
+  await wait(hold, 800);   // 全部の行が出て少ししたら、タップで送れる
   if (out) { els.forEach((d) => d.classList.remove('on')); await wait(1300); $('card').hidden = true; }
 }
 function hideCard() { $('card').hidden = true; }
