@@ -53,6 +53,10 @@ a.lk:hover, a.lk:focus-visible { border-color: var(--fg); outline: none; }
 a.lk small { color: var(--amber); }
 .note { font-size: 13px; color: var(--mute); margin: 2px 0 6px; line-height: 1.7; }
 .lk.off { color: var(--mute); }
+#extra.open { color: var(--fg); border-color: var(--amber); }
+#extra.flash { animation: chakin 1.4s ease-out; }
+@keyframes chakin { 0% { box-shadow: 0 0 0 0 rgba(220,170,72,.9); background: #3a2e14; } 60% { box-shadow: 0 0 0 14px rgba(220,170,72,0); } 100% { box-shadow: 0 0 0 0 rgba(220,170,72,0); background: var(--panel); } }
+.done { font-family: var(--f-mono); font-size: 11px; color: var(--amber); letter-spacing: .1em; margin-left: 8px; }
 h2 { font-size: 13px; letter-spacing: .45em; color: var(--amber); font-weight: 700; margin: 0 0 12px; }
 .ch { display: grid; border-top: 1px solid var(--line); }
 .ch div { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 4px 10px; padding: 14px 0; border-bottom: 1px solid var(--line); }
@@ -81,7 +85,7 @@ p.tx { font-size: 15.5px; line-height: 2; margin: 0 0 10px; color: #ddd6c9; }
     <a class="lk" href="ch2.html">第2章「空のホテル、最後の着陸」を遊ぶ<small>無料 ・ PLAY →</small></a>
     <a class="lk" href="ch3.html">第3章「霧の海の11時間」を遊ぶ<small>無料 ・ PLAY →</small></a>
     <a class="lk" href="ch4.html">第4章「吹雪の雪中行軍」を遊ぶ<small>無料 ・ PLAY →</small></a>
-    <div class="lk off" aria-disabled="true">EXTRA ・ ？？？<small>準備中</small></div>
+    <div class="lk off" id="extra" aria-disabled="true">EXTRA ・ ？？？<small id="extraNote">4章すべてを遊ぶと、ひらきます</small></div>
     <p class="note">パソコンかタブレットを横向きにして、ヘッドホンで遊ぶのがおすすめです。</p>
     <div class="lk off">Steam ストアページ<small>準備中</small></div>
     <a class="lk" href="https://www.youtube.com/watch?v=1_6HhfWjvTU" target="_blank" rel="noopener">紹介動画(YouTube)<small>PV →</small></a>
@@ -124,3 +128,23 @@ p.tx { font-size: 15.5px; line-height: 2; margin: 0 0 10px; color: #ddd6c9; }
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="ch"]');if(a){try{gtag('event','play_click',{chapter:a.getAttribute('href')});}catch(_){}}},true);</script>
 </body>
 </html>
+<script>
+// 4章すべてを最後まで遊ぶと、EXTRA がひらく(この端末のブラウザに記録)
+(function () {
+  var keys = ['ua232_played', 'lz129_played', 'ad56_played', 'hk02_played'], got = 0;
+  try { keys.forEach(function (k, i) { if (localStorage.getItem(k) === '1') { got++; var a = document.querySelector('a[href="ch' + (i + 1) + '.html"] small'); if (a) a.insertAdjacentHTML('beforeend', '<span class="done">✓</span>'); } }); } catch (e) { return; }
+  var ex = document.getElementById('extra'); if (!ex) return;
+  if (got < 4) { document.getElementById('extraNote').textContent = '4章すべてを遊ぶと、ひらきます(' + got + ' / 4)'; return; }
+  var a = document.createElement('a'); a.className = 'lk open'; a.id = 'extra'; a.href = 'ch5.html';
+  var cleared = false; try { cleared = localStorage.getItem('ap13_played') === '1'; } catch (e) {}
+  a.innerHTML = 'EXTRA「アポロ13号」を遊ぶ<small>' + (cleared ? 'クリア済み ✓' : 'ひらきました ・ PLAY →') + '</small>';
+  ex.replaceWith(a);
+  var seen = false; try { seen = localStorage.getItem('bousai_extra_seen') === '1'; localStorage.setItem('bousai_extra_seen', '1'); } catch (e) {}
+  if (!seen) {
+    a.classList.add('flash');
+    try { var C = window.AudioContext || window.webkitAudioContext, c = new C(), t = c.currentTime + 0.05;
+      [1318.5, 1760, 2637].forEach(function (f, i) { var o = c.createOscillator(), g = c.createGain(); o.type = 'triangle'; o.frequency.value = f; g.gain.setValueAtTime(0, t + i * 0.07); g.gain.linearRampToValueAtTime(0.08, t + i * 0.07 + 0.01); g.gain.exponentialRampToValueAtTime(0.0005, t + i * 0.07 + 0.9); o.connect(g).connect(c.destination); o.start(t + i * 0.07); o.stop(t + i * 0.07 + 1); });
+    } catch (e) {}
+  }
+})();
+</script>
