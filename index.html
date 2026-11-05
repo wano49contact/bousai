@@ -71,9 +71,16 @@ p.tx { font-size: 15.5px; line-height: 2; margin: 0 0 10px; color: #ddd6c9; }
 @media (prefers-reduced-motion: no-preference) { .lk { transition: border-color .2s; } }
 </style>
 
-<div class="wrap">
+<style>
+.lsw { display:inline-flex; margin-left:12px; vertical-align:middle; border:1px solid var(--line); }
+.lsw button { font-family:var(--f-serif); font-size:12px; letter-spacing:.06em; color:var(--mute); background:none; border:0; padding:5px 10px; cursor:pointer; }
+.lsw button[aria-pressed="true"] { background:var(--fg); color:#000; }
+#extraEn.open { color: var(--fg); border-color: var(--amber); }
+#extraEn.flash { animation: chakin 1.4s ease-out; }
+</style>
+<div class="wrap" data-l="ja" lang="ja">
   <header class="top">
-    <p class="k">DOCUMENTARY SURVIVAL ・ 全4章</p>
+    <p class="k">DOCUMENTARY SURVIVAL ・ 全4章＋EXTRA <span class="lsw" role="group" aria-label="Language"><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">English</button></span></p>
     <h1><span class="logo" role="img" aria-label="防災"><span class="lt">防災</span><span class="ls"><i>1902</i><span>UAL 232 / LZ 129 / ANDREA DORIA / HAKKODA</span><i>1989</i></span></span></h1>
     <p class="tag">史実の事故を、その場にいた一人として。</p>
   </header>
@@ -87,6 +94,7 @@ p.tx { font-size: 15.5px; line-height: 2; margin: 0 0 10px; color: #ddd6c9; }
     <a class="lk" href="ch4.html">第4章「吹雪の雪中行軍」を遊ぶ<small>無料 ・ PLAY →</small></a>
     <div class="lk off" id="extra" aria-disabled="true">EXTRA ・ ？？？<small id="extraNote">4章すべてを遊ぶと、ひらきます</small></div>
     <p class="note">パソコンかタブレットを横向きにして、ヘッドホンで遊ぶのがおすすめです。</p>
+    <a class="lk" href="https://wanoazayaka.booth.pm/items/9100964" target="_blank" rel="noopener">BOOTH版(全章まとめ・日英)<small>¥200 →</small></a>
     <div class="lk off">Steam ストアページ<small>準備中</small></div>
     <a class="lk" href="https://www.youtube.com/watch?v=1_6HhfWjvTU" target="_blank" rel="noopener">紹介動画(YouTube)<small>PV →</small></a>
   </nav>
@@ -124,27 +132,94 @@ p.tx { font-size: 15.5px; line-height: 2; margin: 0 0 10px; color: #ddd6c9; }
   <p class="note">アクセス数を数えるため、Googleアナリティクスを使っています。</p>
 </div>
 
+<div class="wrap" data-l="en" lang="en" hidden>
+  <header class="top">
+    <p class="k">DOCUMENTARY SURVIVAL ・ 4 CHAPTERS + EXTRA <span class="lsw" role="group" aria-label="Language"><button type="button" data-lang="ja">日本語</button><button type="button" data-lang="en">English</button></span></p>
+    <h1><span class="logo" role="img" aria-label="BOUSAI"><span class="lt">防災</span><span class="ls"><i>1902</i><span>UAL 232 / LZ 129 / ANDREA DORIA / HAKKODA</span><i>1989</i></span></span></h1>
+    <p class="tag">史実の事故を、その場にいた一人として。<br><span style="font-size:.8em">Real disasters, as one who was there.</span></p>
+  </header>
+
+  <nav class="links" aria-label="Links">
+    <a class="lk" href="https://x.com/wano49" target="_blank" rel="noopener">The creator on X<small>@wano49 →</small></a>
+    <a class="lk" href="https://lit.link/wano49" target="_blank" rel="noopener">Creator's links (manga, etc.)<small>lit.link →</small></a>
+    <a class="lk" href="en/ch1.html">Chapter 1 — "44 Minutes Without Control"<small>FREE ・ PLAY →</small></a>
+    <a class="lk" href="en/ch2.html">Chapter 2 — "Hotel in the Sky, the Last Landing"<small>FREE ・ PLAY →</small></a>
+    <a class="lk" href="en/ch3.html">Chapter 3 — "Eleven Hours in the Fog"<small>FREE ・ PLAY →</small></a>
+    <a class="lk" href="en/ch4.html">Chapter 4 — "The March into the Blizzard"<small>FREE ・ PLAY →</small></a>
+    <div class="lk off" id="extraEn" aria-disabled="true">EXTRA ・ ???<small id="extraNoteEn">Unlocks after all 4 chapters</small></div>
+    <p class="note">Best on a computer or a tablet held sideways, with headphones.</p>
+    <a class="lk" href="https://wanoazayaka.booth.pm/items/9100964" target="_blank" rel="noopener">BOOTH edition (all chapters, Japanese &amp; English)<small>¥200 →</small></a>
+    <div class="lk off">Steam store page<small>Coming soon</small></div>
+    <a class="lk" href="https://www.youtube.com/watch?v=1_6HhfWjvTU" target="_blank" rel="noopener">Trailer (YouTube)<small>PV →</small></a>
+  </nav>
+  <p class="note" style="margin-top:14px">Also on itch.io　<a href="https://wano49contact.itch.io/bousai-en" target="_blank" rel="noopener" style="color:inherit">wano49contact.itch.io/bousai-en →</a></p>
+
+  <section>
+    <h2>The accidents</h2>
+    <p class="tx">Why these four? Each left behind survivors' accounts and detailed investigation records, and each changed how we think about safety. Air, sea, a snowbound mountain — four places, four eras. In each, you trace what kept people alive.</p>
+    <div class="ch">
+      <div><span class="n">CH.1</span><span class="t">United Airlines Flight 232</span><span class="s"><i>1989</i>44 Minutes Without Control</span></div>
+      <div><span class="n">CH.2</span><span class="t">Hindenburg</span><span class="s"><i>1937</i>Hotel in the Sky, the Last Landing</span></div>
+      <div><span class="n">CH.3</span><span class="t">Andrea Doria</span><span class="s"><i>1956</i>Eleven Hours in the Fog</span></div>
+      <div><span class="n">CH.4</span><span class="t">Mount Hakkōda</span><span class="s"><i>1902</i>The March into the Blizzard</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>About the game</h2>
+    <p class="tx">You live through a real accident from the very beginning, through the eyes of one person who was there. Nothing rushes you. You look around, think, and choose what to do. At the end, the History Notes show what really happened — and who survived, and how.</p>
+    <p class="tx">This is not a game made to frighten. It was made with respect for those who died, to learn from the record. Times, figures and quoted words follow the accident reports and other records; the main character and some people and conversations are fictional.</p>
+  </section>
+
+  <section>
+    <h2>Support, streaming and videos</h2>
+    <p class="tx">The game is free to play. Paid versions (BOOTH, Steam) have the same content. If you enjoyed it, picking one up as a small tip toward the next chapter would mean a lot.</p><p class="tx">Anyone is welcome to stream it or make videos. If your stream or video is monetized, buying the BOOTH or Steam version would be a kind encouragement — but it is entirely optional.</p><p class="tx">These are real accidents. Please avoid treating them in ways that would hurt the people who died or those connected to them.</p>
+  </section>
+
+  <section>
+    <h2>Creator</h2>
+    <p class="tx">wano, a manga artist in Japan. I love aircraft and accident investigations; working in manufacturing made me fall for the very idea of safety. I wanted a game like this, so I made it.</p>
+  </section>
+
+  <p class="warn">Contains impacts, fire, and the number of people who died. If you have been through an accident or disaster, please take care of yourself.</p>
+  <p class="contact">Made by wano ・ Contact: <span>wano49contact@gmail.com</span></p>
+  <p class="note">This site uses Google Analytics to count visits.</p>
+</div>
+
 <script>/* 計測:トップの章ボタン */
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="ch"]');if(a){try{gtag('event','play_click',{chapter:a.getAttribute('href')});}catch(_){}}},true);</script>
-</body>
-</html>
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="ch"],a[href^="en/ch"]');if(a){try{gtag('event','play_click',{chapter:a.getAttribute('href')});}catch(_){}}},true);</script>
 <script>
-// 4章すべてを最後まで遊ぶと、EXTRA がひらく(この端末のブラウザに記録)
+// 言語の切り替え(?lang=en / 記録 / 端末の言語の順)。記録はゲームの「日本語/English」と共通
 (function () {
-  var keys = ['ua232_played', 'lz129_played', 'ad56_played', 'hk02_played'], got = 0;
-  try { keys.forEach(function (k, i) { if (localStorage.getItem(k) === '1') { got++; var a = document.querySelector('a[href="ch' + (i + 1) + '.html"] small'); if (a) a.insertAdjacentHTML('beforeend', '<span class="done">✓</span>'); } }); } catch (e) { return; }
-  var ex = document.getElementById('extra'); if (!ex) return;
-  if (got < 4) { document.getElementById('extraNote').textContent = '4章すべてを遊ぶと、ひらきます(' + got + ' / 4)'; return; }
-  var a = document.createElement('a'); a.className = 'lk open'; a.id = 'extra'; a.href = 'ch5.html';
-  var cleared = false; try { cleared = localStorage.getItem('ap13_played') === '1'; } catch (e) {}
-  a.innerHTML = 'EXTRA「アポロ13号」を遊ぶ<small>' + (cleared ? 'クリア済み ✓' : 'ひらきました ・ PLAY →') + '</small>';
-  ex.replaceWith(a);
-  var seen = false; try { seen = localStorage.getItem('bousai_extra_seen') === '1'; localStorage.setItem('bousai_extra_seen', '1'); } catch (e) {}
-  if (!seen) {
-    a.classList.add('flash');
-    try { var C = window.AudioContext || window.webkitAudioContext, c = new C(), t = c.currentTime + 0.05;
-      [1318.5, 1760, 2637].forEach(function (f, i) { var o = c.createOscillator(), g = c.createGain(); o.type = 'triangle'; o.frequency.value = f; g.gain.setValueAtTime(0, t + i * 0.07); g.gain.linearRampToValueAtTime(0.08, t + i * 0.07 + 0.01); g.gain.exponentialRampToValueAtTime(0.0005, t + i * 0.07 + 0.9); o.connect(g).connect(c.destination); o.start(t + i * 0.07); o.stop(t + i * 0.07 + 1); });
-    } catch (e) {}
+  var q = (location.search.match(/[?&]lang=(ja|en)/) || [])[1], lang = q;
+  if (!lang) { try { lang = localStorage.getItem('bousai_lang'); } catch (e) {} }
+  if (lang !== 'ja' && lang !== 'en') lang = /^ja\b/i.test(navigator.language || '') ? 'ja' : 'en';
+  function set(l) {
+    lang = l; try { localStorage.setItem('bousai_lang', l); } catch (e) {}
+    document.documentElement.lang = l;
+    document.querySelectorAll('.wrap[data-l]').forEach(function (w) { w.hidden = w.dataset.l !== l; });
+    document.querySelectorAll('.lsw button').forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === l ? 'true' : 'false'); });
+    document.title = l === 'en' ? 'BOUSAI — Real disasters, as one who was there. | Official site' : '防災 ― 史実の事故を、その場にいた一人として。｜公式ページ';
   }
+  document.querySelectorAll('.lsw button').forEach(function (b) { b.addEventListener('click', function () { set(b.dataset.lang); }); });
+  set(lang);
+})();
+// 4章すべてを最後まで遊ぶと、EXTRA がひらく(記録は日英共通)
+(function () {
+  var keys = ['ua232_played', 'lz129_played', 'ad56_played', 'hk02_played'], got = 0, played = [];
+  try { keys.forEach(function (k) { var p = localStorage.getItem(k) === '1'; played.push(p); if (p) got++; }); } catch (e) { return; }
+  [['ja', '', 'extra', 'extraNote'], ['en', 'en/', 'extraEn', 'extraNoteEn']].forEach(function (c) {
+    var w = document.querySelector('.wrap[data-l="' + c[0] + '"]'); if (!w) return;
+    played.forEach(function (p, i) { if (!p) return; var a = w.querySelector('a[href="' + c[1] + 'ch' + (i + 1) + '.html"] small'); if (a) a.insertAdjacentHTML('beforeend', '<span class="done">✓</span>'); });
+    var ex = document.getElementById(c[2]); if (!ex) return;
+    if (got < 4) { document.getElementById(c[3]).textContent = c[0] === 'en' ? 'Unlocks after all 4 chapters (' + got + ' / 4)' : '4章すべてを遊ぶと、ひらきます(' + got + ' / 4)'; return; }
+    var a = document.createElement('a'); a.className = 'lk open'; a.id = c[2]; a.href = c[1] + 'ch5.html';
+    var cleared = false; try { cleared = localStorage.getItem('ap13_played') === '1'; } catch (e) {}
+    a.innerHTML = c[0] === 'en' ? 'EXTRA — "87 Hours to Earth" (Apollo 13)<small>' + (cleared ? 'CLEARED ✓' : 'UNLOCKED ・ PLAY →') + '</small>'
+                                : 'EXTRA「アポロ13号」を遊ぶ<small>' + (cleared ? 'クリア済み ✓' : 'ひらきました ・ PLAY →') + '</small>';
+    ex.replaceWith(a);
+  });
 })();
 </script>
+</body>
+</html>
